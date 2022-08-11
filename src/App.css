@@ -1,14 +1,15 @@
 .navBar {
   display: flex;
+  font-weight: 500;
   flex-direction: row;
-  background-color: rgb(211, 211, 211);
+  background-color: rgba(0, 50, 34, 0.853);
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: rgb(175, 175, 175);
+  border-bottom-color: rgba(36, 36, 36, 0.168);
   align-items: center;
   min-height: 40px;
   padding-left: 25px;
-  font-size: large;
+  font-size: 25px;
   }
   .cart-items {
   display: flex;
@@ -25,17 +26,17 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-left: 5px;
+  margin-left: 20px;
   }
-  .all-products {
+  .all-sneakers {
   display: flex;
-  margin: 20px;
+  margin: 10px;
   }
   .card {
   border-style: solid;
   border-width: 2px;
-  border-color: rgb(211, 211, 211);
-  border-radius: 10px; 
+  border-color: rgb(34, 34, 34);
+  border-radius: 15px; 
   max-width: 200px;
   }
   .card-img-top {
@@ -46,15 +47,16 @@
   margin: 10px;
   }
   .btn {
-  background-color: cornflowerblue;
+  background-color: rgb(56, 56, 56);
   color: white;
   padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 3px;
-  border-radius: 3px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px;
+  border-radius: 30px;
   border-width: 0px;
+
   }
   a {
   color: black;

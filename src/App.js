@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import Products from './components/Products';
+import Sneakers from './components/Sneakers';
 import { useState } from "react";
 
 
@@ -9,32 +9,32 @@ function App() {
   //let cartNum = 0;
 
   const [cartNum, setCartNum] = useState(0);
-  const products = [
+  const sneakers = [
     {
    id:1,
-   title: "Chocolate",
-   description: "Cgocolate is a food made from cacao beans. It is used in many desserts like pudding, cakes and candy",
+   title: "NIKE Patike Air Force 1 '07 LXX",
+   description: "Nike Air Force 1 '07 LXX ženske lifestyle patike čine vaš stil zagrejanim. Ove patike su dodale zimsku notu onome što najbolje poznajete: prošivene slojeve na gornjištu i smele detalje. Uživaćete u udobnosti i lakoći nošenja ovih patika.  ",
    amount: 0,
     },
 
      {
      id: 2,
-     title: "Lollypop",
+     title: "Adidas Patike FORUM LOW",
      description:
-     "Lollipops are available in a number of colors and flavors, particularly fruit flavors.",
+     "Simbol samoizražavanja od 1984. godine, ove patike inspirisane košarkom služe da pomeraju granice i ukažu ti šta sve možeš postići napornim radom. Poštujući činjenicu da ne bismo bili tu gde jesmo bez drugih, one pokazuju klasične timske boje.",
      amount: 0,
      },
 
      {
        id: 3,
-       title: "Ice Cream",
+       title: "NEW BALANCE Patike 237",
        description:
-       "Ice cream is a sweetened frozen food typically eaten as a snack or dessert.",
+       "Ovaj model donosi sa sobom retro vibracije i odaje počast modelima iz prošlosti. Gornjište je izrađeno od mešavine mrežastih materijala, najlona i antilopa, što će doneti tvojim stopalima udobnost i prijatnost tokom celodnevnog nošenja.",
        amount: 0,
        },
  ];
 
- function addProducts(title) {
+ function addSneakers(title) {
   console.log("Dodat je proizvod: " + title);
   setCartNum(cartNum + 1);
  // console.log("Broj proizvoda u korpi: " + cartNum);
@@ -43,7 +43,7 @@ function App() {
   return ( 
   <div className="App">
     <NavBar cartNum={cartNum}></NavBar>
-    <Products products={products} onAdd={addProducts}/>
+    <Sneakers sneakers={sneakers} onAdd={addSneakers}/>
     </div>
   
   );
