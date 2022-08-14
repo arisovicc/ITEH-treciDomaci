@@ -2,14 +2,16 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Sneakers from './components/Sneakers';
 import { useState } from "react";
+import Cart from "./components/Cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
 function App() {
-  //let cartNum = 0;
 
   const [cartNum, setCartNum] = useState(0);
-  const sneakers = [
+  const [cartSneakers, setCartSneakers] = useState([]);
+  const [sneakers] = useState ([
     {
    id:1,
    title: "NIKE Patike Air Force 1 '07 LXX",
@@ -32,21 +34,37 @@ function App() {
        "Ovaj model donosi sa sobom retro vibracije i odaje počast modelima iz prošlosti. Gornjište je izrađeno od mešavine mrežastih materijala, najlona i antilopa, što će doneti tvojim stopalima udobnost i prijatnost tokom celodnevnog nošenja.",
        amount: 0,
        },
- ];
+  ]);
 
- function addSneakers(title) {
+  function refreshCart() {
+    let newSneakers = sneakers.filter((prod) => prod.amount > 0);
+    setCartSneakers(newSneakers);
+  }
+
+ function addSneakers(title, id) {
   console.log("Dodat je proizvod: " + title);
   setCartNum(cartNum + 1);
- // console.log("Broj proizvoda u korpi: " + cartNum);
- }
+  sneakers.forEach((prod) => {
+    if (prod.id === id) {
+      prod.amount++;
+    }
+    console.log(prod.amount);
+  });
+  refreshCart();
+}
 
-  return ( 
-  <div className="App">
+return (
+  <BrowserRouter className="App">
     <NavBar cartNum={cartNum}></NavBar>
-    <Sneakers sneakers={sneakers} onAdd={addSneakers}/>
-    </div>
-  
-  );
+    <Routes>
+      <Route
+        path="/"
+        element={<Sneakers sneakers={sneakers} onAdd={addSneakers} />}
+      />
+      <Route path="/cart" element={<Cart sneakers={cartSneakers} />} />
+    </Routes>
+  </BrowserRouter>
+);
 }
 
 export default App;
